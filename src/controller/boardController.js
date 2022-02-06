@@ -121,7 +121,7 @@ const updateBoard = async function (req, res) {
     }
 }
 
-const DeleteBoardById = async function (req, res) {
+const deleteBoardById = async function (req, res) {
     try {
         let boardId = req.params.boardId
         let userIdFromToken = req.userId
@@ -149,5 +149,5 @@ const DeleteBoardById = async function (req, res) {
     }
 }
 module.exports = {
-    createBoard, getboardById, updateBoard, DeleteBoardById
+    createBoard, getboardById, updateBoard, deleteBoardById
 }
