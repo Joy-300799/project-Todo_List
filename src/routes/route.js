@@ -14,7 +14,7 @@ router.post('/enterOtp', userController.enterOtp)
 router.post('/board/:userId', middleware.userAuth, boardController.createBoard)
 router.get('/board/:boardId', middleware.userAuth, boardController.getboardById)
 router.put('/board/:boardId', middleware.userAuth, boardController.updateBoard)
-router.delete('/board/:boardId', middleware.userAuth, boardController.DeleteBoardById)
+router.delete('/board/:boardId', middleware.userAuth, boardController.deleteBoardById)
 
 //Task's APIs -> Create task, fetch Task By Id, Update the task and delete task.
 router.post('/board/:boardId/task', middleware.userAuth, todoController.createTask)
