@@ -151,4 +151,3 @@ const deleteBoardById = async function (req, res) {
 module.exports = {
     createBoard, getboardById, updateBoard, deleteBoardById
 }
-
