@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const userModel = require('../models/userModel')
 const boardModel = require('../models/boardModel')
 const validator = require('../utils/validator')
-const todoModel = require('../models/todoModel')
+const todoModel = require('../models/taskModel')
 
 
 const createBoard = async function (req, res) {
@@ -121,7 +121,7 @@ const updateBoard = async function (req, res) {
     }
 }
 
-const DeleteBoardById = async function (req, res) {
+const deleteBoardById = async function (req, res) {
     try {
         let boardId = req.params.boardId
         let userIdFromToken = req.userId
@@ -149,5 +149,6 @@ const DeleteBoardById = async function (req, res) {
     }
 }
 module.exports = {
-    createBoard, getboardById, updateBoard, DeleteBoardById
+    createBoard, getboardById, updateBoard, deleteBoardById
 }
+

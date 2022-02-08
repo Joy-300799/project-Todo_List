@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const todoSchema = new mongoose.Schema({
+const taskSchema = new mongoose.Schema({
     boardId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'project7_board',
@@ -9,12 +9,12 @@ const todoSchema = new mongoose.Schema({
     task: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        trim:true
     },
     status: {
         type: String,
-        default: 'Todo',
-        required: true
+        default: 'Todo'
     },
     isDeleted: {
         type: Boolean,
@@ -23,4 +23,4 @@ const todoSchema = new mongoose.Schema({
 
 }, { timestamps: true })
 
-module.exports = mongoose.model('project7_Todo', todoSchema)
+module.exports = mongoose.model('project7_Task', taskSchema)

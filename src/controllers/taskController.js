@@ -1,7 +1,7 @@
 const userModel = require('../models/userModel')
 const boardModel = require('../models/boardModel')
 const validator = require('../utils/validator')
-const todoModel = require('../models/todoModel')
+const todoModel = require('../models/taskModel')
 const { addListener } = require('../models/userModel')
 
 const createTask = async function (req, res) {
@@ -32,7 +32,7 @@ const createTask = async function (req, res) {
         }
 
         //searching board document
-        const findBoard = await boardModel.findOne({ _id: boardId })
+        const findBoard = await boardModel.findOne({ _id: boardId, isDeleted: false })
         if (!findBoard) {
             return res.status(400).send({ status: false, message: `${boardId} is not present` })
         }
@@ -48,7 +48,7 @@ const createTask = async function (req, res) {
         //searching task in DB to avoid redundancy.
         const searchTask = await todoModel.findOne({ task: task })
         if (searchTask) {
-            return res.status(400).send({ status: false, message: `${task} alredy present` })
+            return res.status(400).send({ status: false, message: `${task} already exists` })
         }
 
         objForTaskCreation['task'] = task
