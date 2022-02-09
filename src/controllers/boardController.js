@@ -4,7 +4,6 @@ const boardModel = require('../models/boardModel')
 const validator = require('../utils/validator')
 const todoModel = require('../models/taskModel')
 
-
 const createBoard = async function (req, res) {
     try {
         let requestBody = req.body
@@ -71,8 +70,8 @@ const getboardById = async function (req, res) {
             }
         }
 
-        const board = boardData.toObject()
-        board['task'] = task
+        const board = searchBoard.toObject()
+        board['task'] = taskArr
 
         return res.status(200).send({ status: true, data: board })
     } catch (err) {

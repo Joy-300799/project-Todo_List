@@ -2,7 +2,6 @@ const userModel = require('../models/userModel')
 const boardModel = require('../models/boardModel')
 const validator = require('../utils/validator')
 const todoModel = require('../models/taskModel')
-const { addListener } = require('../models/userModel')
 
 const createTask = async function (req, res) {
     try {
